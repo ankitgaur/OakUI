@@ -1,0 +1,56 @@
+<div class="col-md-12">
+
+	<!-- template -->
+	<div class="news-slider news-block mv5 mvt0">
+
+		<!-- masterslider -->
+		<div class="master-slider ms-skin-default" id="masterslider1">
+
+			<!--  TODO: Getting 404 for images-->
+			<div class="ms-slide" data-delay="0"
+				data-ng-repeat="slide in topslides">
+				<img ng-if="slide.img" src="{{slide.img}}" data-src="images/banner_final.png"
+					alt="Image" />
+				<div class="ms-thumb post hover-zoom">
+					<div class="image" data-src="images/banner_final.png">
+						<img ng-if="slide.img" src="{{slide.img}}" />
+					</div>
+					<div class="thumb-meta">
+						<div class="meta">
+							<!-- TODO: <span class="author">Richard Agidee</span> <span
+													class="date">2h</span> -->
+						</div>
+						<h4>{{slide.title}}</h4>
+					</div>
+				</div>
+
+				<div class="ms-layer box" data-delay="0" data-effect="bottom(45)"
+					data-duration="300" data-ease="easeInOut">
+
+					<div class="meta animate-element" data-anim="fadeInUp">
+						<!-- TODO: <span class="author">Richard Agidee</span> <span class="date">2h</span> -->
+					</div>
+					<h4 class="animate-element" data-anim="fadeInUp">
+						<a href="single.html">{{slide.title}}</a>
+					</h4>
+					<p class="animate-element" data-anim="fadeInUp">{{slide.intro}}</p>
+
+				</div>
+
+			</div>
+
+
+
+		</div>
+		<!-- end of masterslider -->
+
+	</div>
+	<!-- end of template -->
+
+</div>
+<!-- end col-md-12 -->
+
+<script>
+	/* News slider */
+	
+</script>
