@@ -33,14 +33,23 @@
 								<a href="javascript:;" class="entry-notify"> <img
 									src="images/notify.png" alt="notification image"> <span>9</span>
 								</a>
-								<div class="entry-name">
-									<a href="javascript:;">Hello, {{user}}</a>
-									<div class="entry-dropdown">
-										<a href="javascript:;">Profile</a> <a href="javascript:;">Notification</a>
-										<a href="javascript:;">Settings</a> <a class="border-top"
-											href="javascript:;">Log out</a>
-									</div>
+
+								<div ng-if="!user" class="entry-name">
+									<a data-toggle="modal" href="#" data-target="#Login">Login</a>
+									| <a data-toggle="modal" href="#" data-target="#Signup">Signup</a>
 								</div>
+
+								<div ng-if="user" class="entry-name">
+										<a ng-controller="userCtrl" ng-click="userDDToggle()" href="javascript:;">Hello,
+											{{user.name}}</a>
+										<div class="entry-dropdown">
+											<a href="javascript:;">Profile</a> <a href="javascript:;">Notification</a>
+											<a href="javascript:;">Settings</a> <a class="border-top"
+												ng-controller="userCtrl" ng-click="logoff()" href="javascript:;">Log out</a>
+										</div>
+									
+								</div>
+
 								<a href="javascript:;" class="user-avatar"> <img
 									src="images/benjamin.jpg" alt="user avatar">
 								</a>
@@ -244,7 +253,8 @@
 								src="images/arrow-lr-left.png" alt="arrow"></a> <a
 							href="javascript:;" class="ticker-arrow-next"><img
 								src="images/arrow-lr-right.png" alt="arrow"></a>
-						</span> <span class="entry-ticker"> <span data-ng-repeat="rumor in rumors">{{rumor.title}}</span>
+						</span> <span class="entry-ticker"> <span
+							data-ng-repeat="rumor in rumors">{{rumor.title}}</span>
 						</span>
 					</div>
 				</div>

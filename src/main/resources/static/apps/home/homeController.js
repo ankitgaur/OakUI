@@ -7,18 +7,31 @@ homeApp
 						'$http',
 						'$log',
 						'oakHomeFactory',
+						'userFactory',
 						function($scope, $rootScope, $http, $log,
-								oakHomeFactory) {
+								oakHomeFactory, userFactory) {
 
+							checkLogin();
 							setDate();
-							setUser();
 							setLocation();
 							getTopSlides();
 							getLastRumors();
-
-							function getLastRumors(){
+							getLatest();
+							getTrending();
+							
+							function getTrending(){
+								
+								$('.parallax-columns-container').parallaxColumn();
+								setTimeout(function() {
+									$('.parallax-columns-container').parallaxColumn();
+								}, 100);
+								
+							}
+							
+							function getLatest(){
+								
 								oakHomeFactory
-								.getPlacement('home_rumors')
+								.getArticlesByLimit(10)
 								.then(
 										function success(response) {
 
@@ -26,21 +39,71 @@ homeApp
 													function() {
 														$scope
 																.$apply(function() {
-																	$scope.rumors = response;
+																	$scope.latest = response;
 																});
 													}, 0);
 
-											setTimeout(
-													function() {
-														util.renderLastRumor();
-													}, 100);
+											setTimeout(function() {
+												$('.parallax-columns-container').parallaxColumn();
+											}, 100);
 
 										},
 										function error(response) {
 											$log
-													.debug('There is some issue while getting rumors from rest service');
+													.debug('There is some issue while getting latest articles from rest service');
 										});
 								
+							}
+
+							function checkLogin() {
+								jwt = util.getCookie("jwt");
+								if (jwt != "") {
+
+									userFactory
+											.whoami(jwt)
+											.then(
+													function success(response) {
+
+														setTimeout(
+																function() {
+																	$scope
+																			.$apply(function() {
+																				$scope.user = response;
+																			});
+																}, 0);
+
+													},
+													function error(response) {
+														$log
+																.debug('There is some issue while getting usr from rest service');
+													});
+								}
+							}
+
+							function getLastRumors() {
+								oakHomeFactory
+										.getPlacement('home_rumors')
+										.then(
+												function success(response) {
+
+													setTimeout(
+															function() {
+																$scope
+																		.$apply(function() {
+																			$scope.rumors = response;
+																		});
+															}, 0);
+
+													setTimeout(function() {
+														util.renderLastRumor();
+													}, 100);
+
+												},
+												function error(response) {
+													$log
+															.debug('There is some issue while getting rumors from rest service');
+												});
+
 							}
 
 							function setDate() {
@@ -56,10 +119,6 @@ homeApp
 
 								$scope.monthday = month + ", " + day;
 
-							}
-
-							function setUser() {
-								$scope.user = "Richard";
 							}
 
 							function getTopSlides() {
@@ -79,7 +138,8 @@ homeApp
 
 													setTimeout(
 															function() {
-																util.renderNewsSlider();
+																util
+																		.renderNewsSlider();
 															}, 100);
 
 												},
@@ -113,6 +173,8 @@ homeApp
 								});
 
 							}
+							
+							
 							/*
 							 * $scope.showTable = function() {
 							 * $('#the-table').show(); $('#the-chart').hide(); };

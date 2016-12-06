@@ -573,7 +573,7 @@
 
 
 	    // Profile dropdown
-	    $('.entry-name').on('click', function(){
+	    $('.entry-name-tst').on('click', function(){
 	    	$(this).find('.entry-dropdown').toggleClass('open');
 	    });
 
