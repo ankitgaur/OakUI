@@ -177,7 +177,7 @@
     		});
 		};
 
-		/* News slider 
+		/* News slider */
 		$('.news-slider').each(function(){
 			var _news_slider = $(this);
 			var _id = _news_slider.find('.master-slider').attr('id');
@@ -212,7 +212,7 @@
 				});
 			}, 400);
 
-		});*/
+		});
 
 
 		/* Entertainment slider */

@@ -19,12 +19,17 @@ homeApp
 							getLatest();
 							getTrending();
 							
-							function getTrending(){
-								
-								$('.parallax-columns-container').parallaxColumn();
-								setTimeout(function() {
-									$('.parallax-columns-container').parallaxColumn();
-								}, 100);
+							//always last
+							render();
+							
+							function render(){
+								setTimeout(function() {									
+									util.renderOnReady();
+									util.renderOnLoad();																
+								}, 1000);
+							}
+							
+							function getTrending(){	
 								
 							}
 							
@@ -42,10 +47,6 @@ homeApp
 																	$scope.latest = response;
 																});
 													}, 0);
-
-											setTimeout(function() {
-												$('.parallax-columns-container').parallaxColumn();
-											}, 100);
 
 										},
 										function error(response) {
@@ -94,10 +95,6 @@ homeApp
 																		});
 															}, 0);
 
-													setTimeout(function() {
-														util.renderLastRumor();
-													}, 100);
-
 												},
 												function error(response) {
 													$log
@@ -136,11 +133,6 @@ homeApp
 																		});
 															}, 0);
 
-													setTimeout(
-															function() {
-																util
-																		.renderNewsSlider();
-															}, 100);
 
 												},
 												function error(response) {
