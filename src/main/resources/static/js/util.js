@@ -22,6 +22,10 @@ var util = {
 		    return "";
 		},
 		
+		isTouchDevice : function(){
+		    return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
+		},
+		
 		renderOnLoad : function(){
 
 
@@ -117,7 +121,7 @@ var util = {
 		        _this.css('background-attachment', 'fixed');
 		    });
 
-		    if( !isTouchDevice() && $('[data-section-type="parallax"]').length ){
+		    if( !util.isTouchDevice() && $('[data-section-type="parallax"]').length ){
 		        $(window).stellar({
 		            horizontalScrolling: false,
 		            verticalScrolling: true,
@@ -600,7 +604,7 @@ var util = {
 			});
 
 
-			/*Last Rumor
+			/*Last Rumor*/
 			$('.tt-el-ticker').each(function(){
 				var _ticker = $(this);
 				var _strings = [];
@@ -665,7 +669,7 @@ var util = {
 				});
 				
 
-			});*/
+			});
 
 
 

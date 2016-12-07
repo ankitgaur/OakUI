@@ -17,7 +17,7 @@ homeApp
 							
 							
 							//always last
-							render();
+							//render();
 							
 							function render(){
 								setTimeout(function() {									

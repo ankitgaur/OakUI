@@ -1,0 +1,169 @@
+<header id="header" class="header-entertainment">
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+
+				<div class="header-wrapper">
+
+					<div class="left-content">
+						<div class="tools">
+							<a href="javascript:;" id="search_handler"> <img
+								src="images/search-dark.png" alt="search icon">
+							</a> <a href="javascript:;" id="burger_menu" class="burger-menu">
+								<img src="images/burger-dark.png" alt="menu icon">
+							</a>
+							<div class="search-panel">
+								<form method="get">
+									<img src="images/search-dark.png" alt="search icon"> <input
+										type="text" name="s"
+										placeholder="Type and press enter to search...">
+									<button type="submit"></button>
+								</form>
+							</div>
+						</div>
+
+						<div class="site-branding">
+							<!-- image logo -->
+							<a href="index.html" rel="home" class="custom-logo-link"> <img
+								src="images/banner_final.png" alt="logo image">
+							</a>
+						</div>
+					</div>
+
+					<div class="right-content">
+
+						<div class="user-profile">
+
+							<a href="javascript:;" class="entry-notify"> <img
+								src="images/notify.png" alt="notification image"> <span>9</span>
+							</a>
+							<div ng-if="!user" class="entry-name">
+								<a data-toggle="modal" href="#" data-target="#Login">Login</a> |
+								<a data-toggle="modal" href="#" data-target="#Signup">Signup</a>
+							</div>
+
+							<div ng-if="user" class="entry-name">
+								<a ng-controller="userCtrl" ng-click="userDDToggle()"
+									href="javascript:;">Hello, {{user.name}}</a>
+								<div class="entry-dropdown">
+									<a href="javascript:;">Profile</a> <a href="javascript:;">Notification</a>
+									<a href="javascript:;">Settings</a> <a class="border-top"
+										ng-controller="userCtrl" ng-click="logoff()"
+										href="javascript:;">Log out</a>
+								</div>
+
+							</div>
+							<a href="javascript:;" class="user-avatar"> <img
+								src="images/benjamin.jpg" alt="user avatar">
+							</a>
+
+							<div class="follow-links">
+								<span class="visible-lg-*">Follow Us:</span> <a
+									class="visible-lg-*" href="javascript:;"><i
+									class="fa fa-facebook"></i></a> <a class="visible-lg-*"
+									href="javascript:;"><i class="fa fa-twitter"></i></a> <a
+									class="visible-lg-*" href="javascript:;"><i
+									class="fa fa-youtube"></i></a> <a class="visible-lg-*"
+									href="javascript:;"><i class="fa fa-google-plus"></i></a> <a
+									class="hidden-lg" href="javascript:;"><i
+									class="fa fa-ellipsis-h"></i></a>
+
+							</div>
+						</div>
+
+						<div class="tt-el-info inline-style tt-info-weather">
+							<h4>{{temprature}}</h4>
+							<p>{{cityregion}}</p>
+						</div>
+
+						<div class="tt-el-info inline-style tt-info-date">
+							<h4>{{day}}</h4>
+							<p>{{monthday}}</p>
+						</div>
+
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="push-menu pm-entertainment">
+		<div class="pm-overlay"></div>
+		<div class="pm-container">
+			<div class="pm-viewport">
+				<div class="pm-wrap">
+
+					<a href="javascript:;" class="close-menu"></a>
+
+					<form class="search-form">
+						<input type="text" name="1" placeholder="Search">
+						<button type="submit">
+							<img src="images/search-en.png" alt="search icon">
+						</button>
+					</form>
+
+					<div class="author-info">
+						<img src="images/benjamin.jpg" alt="search icon">
+						<div ng-if="user" class="auth-name">
+							<h4>
+								<a href="javascript:;">Benjamin</a>
+							</h4>
+							<p>
+								<a href="javascript:;">Sign out</a>
+							</p>
+						</div>
+					</div>
+
+					<h4 class="pm-en-title">Menu</h4>
+
+					<nav class="big-menu">
+						<ul>
+							<li><a href="news.html"><i
+									data-bg-image="images/pm-en-ico1.png"></i>News</a></li>
+							<li><a href="entertainment.html"><i
+									data-bg-image="images/pm-en-ico2.png"></i>Movies</a></li>
+							<li><a href="blog.html"><i
+									data-bg-image="images/pm-en-ico3.png"></i>TV Series</a></li>
+							<li><a href="news.html"><i
+									data-bg-image="images/pm-en-ico4.png"></i>Events</a></li>
+							<li><a href="blog.html"><i
+									data-bg-image="images/pm-en-ico5.png"></i>Trailers</a></li>
+							<li><a href="entertainment.html"><i
+									data-bg-image="images/pm-en-ico6.png"></i>Music</a></li>
+						</ul>
+					</nav>
+
+					<h4 class="pm-en-title">Featured News</h4>
+
+					<div class="pm-en-recent">
+						<a href="blog.html" class="er-item"> <img
+							src="images/pages/pm-en1.png" alt="recent news">
+						</a> <a href="index.html" class="er-item"> <img
+							src="images/pages/pm-en2.png" alt="recent news">
+						</a>
+					</div>
+
+					<h4 class="pm-en-title">Connect</h4>
+
+					<div class="pm-socials">
+						<a href="javascript:;"><i class="fa fa-facebook"></i></a> <a
+							href="javascript:;"><i class="fa fa-twitter"></i></a> <a
+							href="javascript:;"><i class="fa fa-youtube"></i></a> <a
+							href="javascript:;"><i class="fa fa-google-plus"></i></a>
+					</div>
+
+					<div class="pm-go-home">
+						<a href="entertainment.html"> <i
+							data-bg-image="images/pm-en-ico-home.png"></i> Go to home
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
