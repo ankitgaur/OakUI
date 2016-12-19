@@ -1,5 +1,7 @@
 var util = {
 		
+		animationEnd : 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+		
 		setCookie : function(cname, cvalue, exdays) {
 		    var d = new Date();
 		    d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -299,7 +301,7 @@ var util = {
 	    			});
 	    			_el.addClass('animated ' + _anim);
 
-	    			_el.one(animationEnd, function() {
+	    			_el.one(util.animationEnd, function() {
 			            $(this).removeClass('animated ' + _anim);
 			        });
 	    		});
@@ -445,7 +447,7 @@ var util = {
 			    			});
 			    			_el.addClass('animated fadeInRight');
 
-			    			_el.one(animationEnd, function() {
+			    			_el.one(util.animationEnd, function() {
 					            $(this).removeClass('animated fadeInRight');
 					        });
 			    		});
@@ -463,7 +465,7 @@ var util = {
 			    			});
 			    			_el.addClass('animated fadeInLeft');
 
-			    			_el.one(animationEnd, function() {
+			    			_el.one(util.animationEnd, function() {
 					            $(this).removeClass('animated fadeInLeft');
 					        });
 			    		});
@@ -850,7 +852,7 @@ var util = {
 				    			});
 				    			_el.addClass('animated fadeInUp ab-visible');
 
-				    			_el.one(animationEnd, function() {
+				    			_el.one(util.animationEnd, function() {
 						            $(this).removeClass('animated fadeInUp');
 						        });
 							});

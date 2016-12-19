@@ -1,6 +1,6 @@
 homeApp
 		.controller(
-				'newsCtrl',
+				'blogCtrl',
 				[
 						'$scope',
 						'$rootScope',
