@@ -1,44 +1,44 @@
 <!-- Login Popup -->
-	<div ng-controller="userCtrl" class="modal fade" id="Login"
-		tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">Sign In</h4>
-				</div>
-				<div class="modal-body signup-frm">
+<div ng-controller="userCtrl" class="modal fade" id="Login"
+	tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Sign In</h4>
+			</div>
+			<div class="modal-body signup-frm">
 
-					<form>
-						<div class="row">
-							<div class="col-sm-5 col-xs-12">
-								<div class="form-group col-xs-12">
-									<label for="exampleInputEmail1">Email ID</label> <input
-										type="text" class="form-control" ng-model="user.id"
-										placeholder="Enter Email ID">
-								</div>
-								<div class="form-group col-xs-12">
-									<label for="exampleInputEmail1">Password</label> <input
-										type="password" class="form-control" ng-model="user.password"
-										placeholder="Enter Password">
-								</div>
+				<form>
+					<div class="row">
+						<div class="col-sm-5 col-xs-12">
+							<div class="form-group col-xs-12">
+								<label for="exampleInputEmail1">Email ID</label> <input
+									type="text" class="form-control" ng-model="user.id"
+									placeholder="Enter Email ID">
 							</div>
-							<div class="col-sm-6 col-xs-12 pull-right">
+							<div class="form-group col-xs-12">
+								<label for="exampleInputEmail1">Password</label> <input
+									type="password" class="form-control" ng-model="user.password"
+									placeholder="Enter Password">
+							</div>
+						</div>
+						<div class="col-sm-6 col-xs-12 pull-right">
 
-								<div class="form-group col-xs-12">
-									<label for="exampleInputEmail1">Not have an Account
-										with us ?</label>
+							<div class="form-group col-xs-12">
+								<label for="exampleInputEmail1">Not have an Account with
+									us ?</label>
 
-								</div>
-								<div class="form-group col-xs-12">
-									<button data-toggle="modal" data-dismiss="modal"
-										data-target="#Signup" class="btn btn-success" type="button">Join
-										Now!</button>
-								</div>
-								<!-- <div class="form-group col-xs-12">
+							</div>
+							<div class="form-group col-xs-12">
+								<button data-toggle="modal" data-dismiss="modal"
+									data-target="#Signup" class="btn btn-success" type="button">Join
+									Now!</button>
+							</div>
+							<!-- <div class="form-group col-xs-12">
 										<button class="btn btn-primary" type="button">
 											<span
 												style="padding-right: 10px; margin-right: 10px; border-right: 1px solid #fff;"><img
@@ -56,146 +56,265 @@
 									</div> -->
 
 
-							</div>
-						</div>
-				</div>
-				<div class="modal-footer">
-					<div class="row">
-						<div class="col-sm-6 col-xs-12">
-							<button ng-click="login(user)" data-dismiss="modal" type="button"
-								class="btn btn-warning pull-left">
-								Sign In <span aria-hidden="true"
-									class="glyphicon glyphicon-triangle-right"></span>
-							</button>
-							<button data-dismiss="modal" class="btn btn-default pull-left"
-								type="button">Close</button>
-						</div>
-						<div class="col-sm-6 col-xs-12">
-							<p class="tog-pup">
-								<a data-toggle="modal" data-dismiss="modal" href="#"
-									data-target="#Forgetpass">Forgot Password ?</a>
-							</p>
-
-
 						</div>
 					</div>
-
-					</form>
-				</div>
 			</div>
-		</div>
-	</div>
-	<!-- Login Popup end -->
-
-	<!-- Signup Popup -->
-	<div ng-controller="userCtrl" class="modal fade" id="Signup"
-		tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">Sign Up</h4>
-				</div>
-				<div class="modal-body signup-frm">
-
-					<form>
-
-
-						<div class="row">
-							<div class="form-group col-sm-12">
-								<label for="exampleInputEmail1">Name</label> <input
-									ng-model="user.name" type="text" class="form-control"
-									placeholder="Enter Name">
-							</div>
-							<div class="form-group col-sm-12">
-								<label for="email">Email Address</label> <input
-									ng-model="user.email" type="email" class="form-control"
-									placeholder="Enter Email ID">
-							</div>
-							<div class="form-group col-sm-12">
-								<label for="username">Choose a username</label> <input
-									type="text" ng-model="user.username" class="form-control"
-									placeholder="Choose username">
-							</div>
-							<div class="form-group col-sm-12">
-								<label for="password">Choose a Password</label> <input
-									ng-model="user.password" type="password" class="form-control"
-									placeholder="Enter Password">
-							</div>
-
-							<div class="form-group col-sm-12 g-recaptcha"
-								data-sitekey="6LcoWQcUAAAAALQLmSFQDP4PtG-z_Nr3mwZaWy-3"></div>
-
-							<!-- <div class="form-group col-md-12">
-									<img src="images/sample/capture-code.png" align="left">
-								</div> -->
-						</div>
-				</div>
-				<div class="modal-footer">
-					<div class="row">
-						<div class="col-sm-6 col-xs-12">
-							<button ng-click="createUser(user)" data-dismiss="modal"
-								type="button" class="btn btn-primary pull-left">
-								Sign Up <span aria-hidden="true"
-									class="glyphicon glyphicon-triangle-right"></span>
-							</button>
-							<button data-dismiss="modal" class="btn btn-default pull-left"
-								type="button">Close</button>
-						</div>
-						<div class="col-sm-6 col-xs-12">
-							<p class="tog-pup">
-								I have an Account <a data-toggle="modal" data-dismiss="modal"
-									href="#" data-target="#Login">Login</a>
-							</p>
-
-
-						</div>
+			<div class="modal-footer">
+				<div class="row">
+					<div class="col-sm-6 col-xs-12">
+						<button ng-click="login(user)" data-dismiss="modal" type="button"
+							class="btn btn-warning pull-left">
+							Sign In <span aria-hidden="true"
+								class="glyphicon glyphicon-triangle-right"></span>
+						</button>
+						<button data-dismiss="modal" class="btn btn-default pull-left"
+							type="button">Close</button>
 					</div>
-
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Signup Popup end -->
+					<div class="col-sm-6 col-xs-12">
+						<p class="tog-pup">
+							<a data-toggle="modal" data-dismiss="modal" href="#"
+								data-target="#Forgetpass">Forgot Password ?</a>
+						</p>
 
 
-	<!-- Forgot-Pass popup -->
-	<div class="modal fade" id="Forgetpass" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" ng-controller="userCtrl">
-		<div class="modal-dialog modal-sm" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">Forgot Password ?</h4>
-				</div>
-				<div class="modal-body signup-frm">
-
-					<form>
-						<div class="row">
-							<div class="form-group col-xs-12">
-								<label for="exampleInputEmail1">Enter Email ID</label> <input
-									type="text" class="form-control" placeholder="Enter Email ID " ng-model="fp.email">
-							</div>
-						</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" ng-click="forgotPassword(fp.email)" class="btn btn-warning pull-left" data-dismiss="modal">
-						Submit <span aria-hidden="true"
-							class="glyphicon glyphicon-triangle-right"></span>
-					</button>
-					<button data-dismiss="modal" class="btn btn-default pull-left"
-						type="button">Close</button>
+					</div>
 				</div>
 
 				</form>
 			</div>
 		</div>
 	</div>
-	<!-- Forgot-Pass end -->
+</div>
+<!-- Login Popup end -->
+
+<!-- Signup Popup -->
+<div ng-controller="userCtrl" class="modal fade" id="Signup"
+	tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+			</div>
+			<div class="modal-body signup-frm">
+
+				<form>
+
+
+					<div class="row">
+						<div class="form-group col-sm-12">
+							<label for="exampleInputEmail1">Name</label> <input
+								ng-model="user.name" type="text" class="form-control"
+								placeholder="Enter Name">
+						</div>
+						<div class="form-group col-sm-12">
+							<label for="email">Email Address</label> <input
+								ng-model="user.email" type="email" class="form-control"
+								placeholder="Enter Email ID">
+						</div>
+						<div class="form-group col-sm-12">
+							<label for="username">Choose a username</label> <input
+								type="text" ng-model="user.username" class="form-control"
+								placeholder="Choose username">
+						</div>
+						<div class="form-group col-sm-12">
+							<label for="password">Choose a Password</label> <input
+								ng-model="user.password" type="password" class="form-control"
+								placeholder="Enter Password">
+						</div>
+
+						<div class="form-group col-sm-12 g-recaptcha"
+							data-sitekey="6LcoWQcUAAAAALQLmSFQDP4PtG-z_Nr3mwZaWy-3"></div>
+
+						<!-- <div class="form-group col-md-12">
+									<img src="images/sample/capture-code.png" align="left">
+								</div> -->
+					</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row">
+					<div class="col-sm-6 col-xs-12">
+						<button ng-click="createUser(user)" data-dismiss="modal"
+							type="button" class="btn btn-primary pull-left">
+							Sign Up <span aria-hidden="true"
+								class="glyphicon glyphicon-triangle-right"></span>
+						</button>
+						<button data-dismiss="modal" class="btn btn-default pull-left"
+							type="button">Close</button>
+					</div>
+					<div class="col-sm-6 col-xs-12">
+						<p class="tog-pup">
+							I have an Account <a data-toggle="modal" data-dismiss="modal"
+								href="#" data-target="#Login">Login</a>
+						</p>
+
+
+					</div>
+				</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Signup Popup end -->
+
+
+<!-- Forgot-Pass popup -->
+<div class="modal fade" id="Forgetpass" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" ng-controller="userCtrl">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Forgot Password ?</h4>
+			</div>
+			<div class="modal-body signup-frm">
+
+				<form>
+					<div class="row">
+						<div class="form-group col-xs-12">
+							<label for="exampleInputEmail1">Enter Email ID</label> <input
+								type="text" class="form-control" placeholder="Enter Email ID "
+								ng-model="fp.email">
+						</div>
+					</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" ng-click="forgotPassword(fp.email)"
+					class="btn btn-warning pull-left" data-dismiss="modal">
+					Submit <span aria-hidden="true"
+						class="glyphicon glyphicon-triangle-right"></span>
+				</button>
+				<button data-dismiss="modal" class="btn btn-default pull-left"
+					type="button">Close</button>
+			</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+<!-- Forgot-Pass end -->
+
+<!-- Create Article Popup -->
+<!-- <div class="modal fade" id="createArticle" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" ng-controller="homeCtrl">
+	<div class="modal-dialog">
+
+		Modal content
+
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Create Article</h4>
+			</div>
+
+			<div class="modal-body">
+				<form novalidate class="form-horizontal" name="articleCreateForm">
+
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="tags">Tags :</label>
+						<div>
+
+							<input class="form-control title" type="text"
+								ng-model="article.tags" placeholder="tags" />
+
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="title">Title:</label>
+						<div>
+							<input class="form-control title" type="text"
+								ng-model="article.title" placeholder="Title" />
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="intro">Intro:</label>
+						<div>
+							<input class="form-control intro" type="text"
+								ng-model="article.intro" placeholder="Introduction" />
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="image">DisplayImage:</label>
+						<div>
+							<input class="form-control" type="file"
+								placeholder="DisplayImage" id="displayImage" />
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<div>
+							<textarea name="editor1" id="editor1" ng-model="article.content"
+								placeholder="Title" rows="10" cols="80">
+                				Enter Text
+            			</textarea>
+						</div>
+					</div>
+
+					<script>
+						editor = CKEDITOR.replace('editor1', {
+							filebrowserBrowseUrl : 'api/ckimages',
+							filebrowserUploadUrl : 'api/ckimages'
+						});
+
+						/* CKEDITOR.on('dialogDefinition', function (ev) {
+							  var dialogName = ev.data.name;
+							  var dialogDefinition = ev.data.definition;
+							  if (dialogName == 'image') {
+							    dialogDefinition.removeContents('Upload');
+							    dialogDefinition.addContents({
+							      title: "Upload",
+							      id: "upload",
+							      label: "Upload",
+							      elements: [{
+							        type: "html",
+							        html: '<form><input id="imageupload" type="file" name="image" /><input type="button" ng-click="sendToServer()"></form>'
+							      }]
+							    });
+							   }
+							});
+						 
+						editor.on( 'filebrowserUploadRequest', function( evt ) {
+							alert(AppConfig.key);
+							 var xhr = evt.data.fileLoader.xhr;
+							 xhr.setRequestHeader( 'Authorization', 'Basic ' + AppConfig.key);
+						} );
+						
+						editor.on( 'fileBrowseRequest', function( evt ) {
+						    var xhr = evt.data.fileLoader.xhr;
+						    xhr.setRequestHeader( 'Authorization', 'Basic ' + AppConfig.key);
+						} ); */
+					</script>
+
+
+					<div class="row"></div>
+
+				</form>
+			</div>
+
+			<div class="modal-footer">
+
+				<button type="button" ng-click="resetForm(article)"
+					class="btn btn-default" data-dismiss="modal">Close</button>
+				<button ng-click="resetForm(article)" type="button"
+					class="btn btn-default">Reset</button>
+				<button ng-click="createArticle(article)" type="button"
+					class="btn btn-primary" data-dismiss="modal">Save</button>
+
+			</div>
+		</div>
+
+	</div>
+
+</div> -->

@@ -8,6 +8,27 @@ homeApp
 
 							var oakHomeFactory = {};
 
+							oakHomeFactory.createArticles = function(articleData){
+								
+								token = util.getCookie("jwt");
+								
+								var url = AppConfig.appUrl+'content';
+								return $http.post(url, articleData, {
+							          transformRequest: angular.identity,
+							          headers: {
+							        	  Authorization : 'Bearer ' + token,
+							        	  'Content-Type': undefined }
+							       }).then(function success(response) {
+							    	   //showSuccessAlert("Article created successfully.");
+							    	   return response.data;
+									   
+									},function error(response) {
+										//showErrorAlert("Article could not be created.Please contact the System Administrator.");
+								});
+						  
+							
+						    };
+							
 							oakHomeFactory.createForumPosts = function(
 									ForumPostData) {
 								var url = AppConfig.appUrl + 'forum_post';
@@ -292,68 +313,6 @@ homeApp
 
 							}
 
-							oakHomeFactory.getMostPopularBlogsDetails = function() {
-								var url = AppConfig.appUrl + 'blogcounts';
-								// url = url+"/"+placementID;
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-
-							oakHomeFactory.getArticlesByLimit = function(limit) {
-								var url = AppConfig.appUrl + 'articles/limit/'
-										+ limit;
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-
-							oakHomeFactory.getPlacement = function(section) {
-								var url = AppConfig.appUrl
-										+ 'placements/section/' + section;
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-
 							oakHomeFactory.getMyBlogs = function() {
 								var url = AppConfig.appUrl + '/myblogs';
 
@@ -420,31 +379,10 @@ homeApp
 
 							};
 
-							oakHomeFactory.getVideoList = function() {
-								var url = AppConfig.appUrl + 'videos/limit/3';
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting videos from rest service');
-												});
-
-							};
-
-							oakHomeFactory.getPopularArticles = function(cat,
-									limit) {
+							oakHomeFactory.getPopularContent = function(content_type,tags) {
 								var url = AppConfig.appUrl
-										+ 'popular_articles/' + cat + '/'
-										+ limit;
+										+ 'content/popular/' + content_type + '?tags='
+										+ tags;
 
 								return $http({
 									method : 'GET',
@@ -463,10 +401,10 @@ homeApp
 
 							};
 
-							oakHomeFactory.getArticleCatByLimit = function(cat,
-									limit) {
-								var url = AppConfig.appUrl + 'articles/' + cat
-										+ '/' + limit;
+							oakHomeFactory.getContent = function(content_type,tags) {
+								var url = AppConfig.appUrl
+								+ 'content/type/' + content_type + '?tags='
+								+ tags;
 
 								return $http({
 									method : 'GET',
@@ -486,8 +424,8 @@ homeApp
 
 							};
 
-							oakHomeFactory.getArticle = function(id) {
-								var url = AppConfig.appUrl + 'articles/' + id;
+							oakHomeFactory.getContentById = function(id) {
+								var url = AppConfig.appUrl + 'content/' + id;
 
 								return $http({
 									method : 'GET',
@@ -505,103 +443,49 @@ homeApp
 												});
 
 							};
-
-							oakHomeFactory.getContent = function(link) {
-								if (link.indexOf("http") == 0) {
-									window.location.href = link;
-								} else {
-									return oakHomeFactory.getArticle(link);
-								}
-							};
-
-							oakHomeFactory.getPostsForBlog = function(blogID) {
-								var url = AppConfig.appUrl
-										+ '/blog_entries/blogs';
-								url = url + "/" + blogID;
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting blog category from rest service');
-												});
-
-							};
-
-							oakHomeFactory.createArticles = function(
-									articleData) {
-								var url = AppConfig.appUrl + 'articles';
-								return $http
-										.post(
-												url,
-												articleData,
-												{
-													transformRequest : angular.identity,
-													headers : {
-														Authorization : 'Basic '
-																+ AppConfig.key,
-														'Content-Type' : undefined
-													}
-												})
-										.then(
-												function success(response) {
-													showSuccessAlert("Article created successfully.");
-													return response.data;
-
-												},
-												function error(response) {
-													showErrorAlert("Article could not be created.Please contact the System Administrator.");
-												});
-
-							};
-
-							oakHomeFactory.getArticleCategories = function() {
-								var url = AppConfig.appUrl
-										+ 'article_categories';
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting article category from rest service');
-												});
-
-							};
-
-							oakHomeFactory.getBlogPostByID = function(
-									blogPostID) {
-								var url = AppConfig.appUrl + 'blog_entries';
-								url = url + "/" + blogPostID;
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting blog category from rest service');
-												});
-
-							};
+							
+							oakHomeFactory.updateArticle = function(id, articleData){
+								
+								token = util.getCookie("jwt");
+								
+								var url = AppConfig.appUrl+'content/'+id;
+								return $http.post(url, articleData, {
+							          transformRequest: angular.identity,
+							          headers: {
+							        	  Authorization : 'Bearer ' + token,
+							        	  'Content-Type': undefined }
+							       }).then(function success(response) {
+							    	   //showSuccessAlert("Article created successfully.");
+							    	   return response.data;
+									   
+									},function error(response) {
+										//showErrorAlert("Article could not be created.Please contact the System Administrator.");
+								});
+						  
+							
+						    };
+						    
+						    oakHomeFactory.deleteArticle = function(id){
+						    
+						    	token = util.getCookie("jwt");
+						    	var url = AppConfig.appUrl+'content/'+id;
+						  	 
+						  	return $http({
+						  		  method: 'DELETE',
+						  		  url: url,
+						  		  crossDomain:true,
+						  		headers: {
+						        	  Authorization : 'Bearer ' + token
+						  		}
+						  		  
+						  	 }).then(function successCallback(response) {
+						  		 return response.data;
+						  	  }, function errorCallback(response) {
+						  			$log.debug('There is some issue while getting data from rest service');
+						  	  }); 
+						    
+						  };
+						    
 
 							return oakHomeFactory;
 

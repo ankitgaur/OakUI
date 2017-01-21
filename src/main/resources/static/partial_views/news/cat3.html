@@ -5,19 +5,19 @@
 
 		<div class="post first color-1 hover-light">
 
-			<div class="image" data-src="images/news/rightnow-03.jpg">
-				<a href="single.html"> <img src="images/5x3.png"
+			<div class="image">
+				<a href="post.html#/{{cat3.top.id}}"> <img src="{{api_url}}image/{{cat2.top.image_id}}"
 					alt="Proportion" />
-				</a> <a href="blog.html" class="label">Changes</a>
+				</a> <!-- <a href="blog.html" class="label">Changes</a> -->
 			</div>
 
 			<div class="meta">
-				<span class="author">Richard Agidee</span> <span class="date">2h</span>
+				<span class="author">{{cat3.top.author}}</span> <span class="date">2h</span>
 			</div>
 			<h4>
-				<a href="#">Three more officers were wounded in the attack left</a>
+				<a href="post.html#/{{cat3.top.id}}">{{cat3.top.name}}</a>
 			</h4>
-			<p>North Carolina Voter ID Law Is Upheld by Federal Judge...</p>
+			<p>{{cat3.top.intro}}...</p>
 		</div>
 
 	</div>
@@ -26,45 +26,17 @@
 
 <div class="col-md-6">
 	<div class="category-block articles">
-		<div class="post hover-light">
+		
+		<div class="post hover-light" ng-repeat="article in cat3.arr">
 			<a href="javascript:;">
-				<div class="image image-thumb"
-					data-src="images/news/category-03.jpg"></div>
+				<div class="image image-thumb"><img src="{{api_url}}image/{{article.image_id}}"></div>
 			</a>
 			<h4>
-				<a href="#">Times on the Air Fresh More</a>
+				<a href="post.html#/{{article.id}}">{{article.name}}</a>
 			</h4>
-			<p>North Carolina Voter ID Law Is Upheld by Federal Judge...</p>
+			<p>{{article.intro}}...</p>
 			<div class="meta">
-				<span class="author">Richard Agidee</span> <span class="date">2h</span>
-			</div>
-		</div>
-
-		<div class="post hover-light">
-			<a href="javascript:;">
-				<div class="image image-thumb"
-					data-src="images/news/category-04.jpg"></div>
-			</a>
-			<h4>
-				<a href="#">Three more officers were wounded in the attack left</a>
-			</h4>
-			<p>North Carolina Voter ID Law Is Upheld by Federal Judge...</p>
-			<div class="meta">
-				<span class="author">Richard Agidee</span> <span class="date">2h</span>
-			</div>
-		</div>
-
-		<div class="post hover-light">
-			<a href="javascript:;">
-				<div class="image image-thumb"
-					data-src="images/news/category-05.jpg"></div>
-			</a>
-			<h4>
-				<a href="#">Create Fairy Houses on a NJ</a>
-			</h4>
-			<p>North Carolina Voter ID Law Is Upheld by Federal Judge...</p>
-			<div class="meta">
-				<span class="author">Richard Agidee</span> <span class="date">2h</span>
+				<span class="author">{{article.author}}</span> <span class="date">2h</span>
 			</div>
 		</div>
 

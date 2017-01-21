@@ -9,18 +9,18 @@
 			<!--  TODO: Getting 404 for images-->
 			<div class="ms-slide" data-delay="0"
 				data-ng-repeat="slide in topslides">
-				<img ng-if="slide.img" src="{{slide.img}}" data-src="images/banner_final.png"
+				<img ng-if="slide.image_id" src="{{api_url}}image/{{slide.image_id}}" data-src="images/banner_final.png"
 					alt="Image" />
 				<div class="ms-thumb post hover-zoom">
 					<div class="image" data-src="images/banner_final.png">
-						<img ng-if="slide.img" src="{{slide.img}}" />
+						<img ng-if="slide.image_id" src="{{api_url}}image/{{slide.image_id}}" />
 					</div>
 					<div class="thumb-meta">
 						<div class="meta">
 							<!-- TODO: <span class="author">Richard Agidee</span> <span
 													class="date">2h</span> -->
 						</div>
-						<h4>{{slide.title}}</h4>
+						<h4>{{slide.name}}</h4>
 					</div>
 				</div>
 
@@ -31,7 +31,7 @@
 						<!-- TODO: <span class="author">Richard Agidee</span> <span class="date">2h</span> -->
 					</div>
 					<h4 class="animate-element" data-anim="fadeInUp">
-						<a href="single.html">{{slide.title}}</a>
+						<a href="post.html#/{{slide.id}}">{{slide.name}}</a>
 					</h4>
 					<p class="animate-element" data-anim="fadeInUp">{{slide.intro}}</p>
 

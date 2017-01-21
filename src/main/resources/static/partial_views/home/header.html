@@ -193,7 +193,6 @@
 										</div>
 									</li>
 								</ul></li>
-							<li><a href="music.html">Music</a></li>
 							<li><a href="#">Forum</a></li>
 							<li><a href="#">Citizen X</a></li>
 						</ul>
@@ -248,13 +247,13 @@
 			<div class="row">
 				<div class="col-sm-9">
 					<div class="tt-el-ticker">
-						<strong>Last Rumor: </strong> <span class="entry-arrows"> <a
+						<strong>Newsflash : </strong> <span class="entry-arrows"> <a
 							href="javascript:;" class="ticker-arrow-prev"><img
 								src="images/arrow-lr-left.png" alt="arrow"></a> <a
 							href="javascript:;" class="ticker-arrow-next"><img
 								src="images/arrow-lr-right.png" alt="arrow"></a>
 						</span> <span class="entry-ticker"> <span
-							data-ng-repeat="rumor in rumors">{{rumor.title}}</span>
+							data-ng-repeat="rumor in rumors">{{rumor.name}}</span>
 						</span>
 					</div>
 				</div>
@@ -305,10 +304,12 @@
 					<nav class="big-menu">
 						<ul>
 							<li><a href="index.html">Home</a></li>
+							<li ng-if="author || admin"><a href="createArticle.html">Create Article</a></li>
 							<li><a href="blog.html">Blog</a></li>
 							<li><a href="news.html">News</a></li>
 							<li><a href="entertainment.html">Entertainment</a></li>
 							<li><a href="forum.html">Forum</a></li>
+							
 							<li><a href="#">Citizen X</a></li>
 						</ul>
 					</nav>

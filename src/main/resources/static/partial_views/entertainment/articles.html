@@ -1,7 +1,7 @@
-<h2 class="block-title mt8" data-title="Finances">
-	Articles <a href="single.html" class="category-more text-right">Continue
+<h2 class="block-title mt8" data-title="Entertainment">
+	Trending <!-- <a href="single.html" class="category-more text-right">Continue
 		to the category <img src="images/arrow-right.png" alt="Arrow">
-	</a>
+	</a> -->
 </h2>
 
 <div class="section-blog en-block category-block sticky-parent">
@@ -13,354 +13,40 @@
 			<div class="row none-masonry animated-blocks">
 
 
-				<div class="col-xs-12 col-sm-6 col-md-4 ab-item">
+				<div class="col-xs-12 col-sm-6 col-md-4 ab-item" ng-repeat="article in trending">
 
 					<div class="post boxed mb3 color-2 cart-style">
 
 						<div class="clearfix">
-							<img class="image-thumb" src="images/user-01.png" alt="Image">
-							<a href="blog.html" class="label">LATEST</a>
+							<img class="image-thumb" src="{{api_url}}image/{{article.image_id}}" alt="Image">
+							<!-- <a href="blog.html" class="label">LATEST</a> -->
 							<div class="meta">
-								<span class="author">Richard Agidee</span> <span class="date">2h</span>
+								<span class="author">{{article.author}}</span> <span class="date">2h</span>
 							</div>
 						</div>
 						<h4 class="font18">
-							<a href="single.html">North Carolina.</a>
+							<a href="post.html#/{{article.id}}">{{article.name}}</a>
 						</h4>
-						<p>This is James McAvoy's third film, where curve bullets
-							play.</p>
-						<div class="image-grid col-2">
+						<p>{{article.intro}}</p>
+						<!-- <div class="image-grid col-2">
 							<div class="image" data-src="images/entertainment/gallery-01.png">
 								<img src="images/4x3.png" alt="Placeholder" />
 							</div>
 							<div class="image" data-src="images/entertainment/gallery-02.png">
 								<img src="images/4x3.png" alt="Placeholder" />
 							</div>
-						</div>
+						</div> -->
 
 
-						<a href="single.html" class="category-more">Continue to the
+						<!-- <a href="single.html" class="category-more">Continue to the
 							news <img src="images/arrow-right.png" alt="Arrow">
-						</a>
+						</a> -->
 
 					</div>
 
 				</div>
 				<!-- /.col -->
-				<div class="col-xs-12 col-sm-6 col-md-4 ab-item">
-
-					<div class="post boxed mb3 color-2 cart-style">
-
-						<div class="clearfix">
-							<img class="image-thumb" src="images/user-02.png" alt="Image">
-							<a href="blog.html" class="label">LATEST</a>
-							<div class="meta">
-								<span class="author">Richard Agidee</span> <span class="date">2h</span>
-							</div>
-						</div>
-						<h4 class="font18">
-							<a href="single.html">User centric electric service.</a>
-						</h4>
-						<p>This is James McAvoy's third film, where curving bullets
-							play a crucial role. The first one is Wanted, where Mc Avowalk.
-							The second one is Men.</p>
-
-						<a href="single.html" class="category-more">Continue to the
-							news <img src="images/arrow-right.png" alt="Arrow">
-						</a>
-
-					</div>
-
-				</div>
-				<!-- /.col -->
-				<div class="col-xs-12 col-sm-6 col-md-4 ab-item">
-
-					<div class="post boxed mb3 color-2 cart-style">
-
-						<div class="clearfix">
-							<img class="image-thumb" src="images/user-03.png" alt="Image">
-							<a href="blog.html" class="label">LATEST</a>
-							<div class="meta">
-								<span class="author">Richard Agidee</span> <span class="date">2h</span>
-							</div>
-						</div>
-						<h4 class="font18">
-							<a href="single.html">Exit will be a new start for you.</a>
-						</h4>
-						<p>This is James McAvoy's third film, where curving bullets
-							play a crucial role. The first one is Wanted, where Mc Avowalk.
-							The second one is Men.</p>
-
-						<a href="single.html" class="category-more">Continue to the
-							news <img src="images/arrow-right.png" alt="Arrow">
-						</a>
-
-					</div>
-
-				</div>
-				<!-- /.col -->
-
-
-				<div class="col-xs-12 col-sm-6 col-md-4 ab-item">
-
-					<div class="post boxed mb3 color-2 cart-style">
-
-						<div class="clearfix">
-							<img class="image-thumb" src="images/user-01.png" alt="Image">
-							<a href="blog.html" class="label">LATEST</a>
-							<div class="meta">
-								<span class="author">Richard Agidee</span> <span class="date">2h</span>
-							</div>
-						</div>
-						<h4 class="font18">
-							<a href="single.html">North Carolina.</a>
-						</h4>
-						<p>This is James McAvoy's third film, where curve bullets
-							play.</p>
-						<div class="image-grid col-2">
-							<div class="image" data-src="images/entertainment/gallery-01.png">
-								<img src="images/4x3.png" alt="Placeholder" />
-							</div>
-							<div class="image" data-src="images/entertainment/gallery-02.png">
-								<img src="images/4x3.png" alt="Placeholder" />
-							</div>
-						</div>
-
-
-						<a href="single.html" class="category-more">Continue to the
-							news <img src="images/arrow-right.png" alt="Arrow">
-						</a>
-
-					</div>
-
-				</div>
-				<!-- /.col -->
-				<div class="col-xs-12 col-sm-6 col-md-4 ab-item">
-
-					<div class="post boxed mb3 color-2 cart-style">
-
-						<div class="clearfix">
-							<img class="image-thumb" src="images/user-02.png" alt="Image">
-							<a href="blog.html" class="label">LATEST</a>
-							<div class="meta">
-								<span class="author">Richard Agidee</span> <span class="date">2h</span>
-							</div>
-						</div>
-						<h4 class="font18">
-							<a href="single.html">User centric electric service.</a>
-						</h4>
-
-						<img src="images/entertainment/post-12.jpg" alt="Image" /> <a
-							href="single.html" class="category-more">Continue to the news
-							<img src="images/arrow-right.png" alt="Arrow">
-						</a>
-
-					</div>
-
-				</div>
-				<!-- /.col -->
-				<div class="col-xs-12 col-sm-6 col-md-4 ab-item">
-
-					<div class="post boxed mb3 color-2 cart-style">
-
-						<div class="clearfix">
-							<img class="image-thumb" src="images/user-03.png" alt="Image">
-							<a href="blog.html" class="label">LATEST</a>
-							<div class="meta">
-								<span class="author">Richard Agidee</span> <span class="date">2h</span>
-							</div>
-						</div>
-						<h4 class="font18">
-							<a href="single.html">Exit will be a new start for you.</a>
-						</h4>
-						<p>This is James McAvoy's third film, where curving bullets
-							play a crucial role. The first one is Wanted, where Mc Avowalk.
-							The second one is Men.</p>
-
-						<a href="single.html" class="category-more">Continue to the
-							news <img src="images/arrow-right.png" alt="Arrow">
-						</a>
-
-					</div>
-
-				</div>
-				<!-- /.col -->
-
-
-				<div class="col-xs-12 col-sm-6 col-md-4 ab-item">
-
-					<div class="post boxed mb3 color-2 cart-style">
-
-						<div class="clearfix">
-							<img class="image-thumb" src="images/user-01.png" alt="Image">
-							<a href="blog.html" class="label">LATEST</a>
-							<div class="meta">
-								<span class="author">Richard Agidee</span> <span class="date">2h</span>
-							</div>
-						</div>
-						<h4 class="font18">
-							<a href="single.html">North Carolina.</a>
-						</h4>
-						<p>This is James McAvoy's third film, where curve bullets
-							play.</p>
-						<div class="image-grid col-2">
-							<div class="image" data-src="images/entertainment/gallery-01.png">
-								<img src="images/4x3.png" alt="Placeholder" />
-							</div>
-							<div class="image" data-src="images/entertainment/gallery-02.png">
-								<img src="images/4x3.png" alt="Placeholder" />
-							</div>
-						</div>
-
-
-						<a href="single.html" class="category-more">Continue to the
-							news <img src="images/arrow-right.png" alt="Arrow">
-						</a>
-
-					</div>
-
-				</div>
-				<!-- /.col -->
-				<div class="col-xs-12 col-sm-6 col-md-4 ab-item">
-
-					<div class="post boxed mb3 color-2 cart-style">
-
-						<div class="clearfix">
-							<img class="image-thumb" src="images/user-02.png" alt="Image">
-							<a href="blog.html" class="label">LATEST</a>
-							<div class="meta">
-								<span class="author">Richard Agidee</span> <span class="date">2h</span>
-							</div>
-						</div>
-						<h4 class="font18">
-							<a href="single.html">User centric electric service.</a>
-						</h4>
-						<p>This is James McAvoy's third film, where curving bullets
-							play a crucial role. The first one is Wanted, where Mc Avowalk.
-							The second one is Men.</p>
-
-						<a href="single.html" class="category-more">Continue to the
-							news <img src="images/arrow-right.png" alt="Arrow">
-						</a>
-
-					</div>
-
-				</div>
-				<!-- /.col -->
-				<div class="col-xs-12 col-sm-6 col-md-4 ab-item">
-
-					<div class="post boxed mb3 color-2 cart-style">
-
-						<div class="clearfix">
-							<img class="image-thumb" src="images/user-03.png" alt="Image">
-							<a href="blog.html" class="label">LATEST</a>
-							<div class="meta">
-								<span class="author">Richard Agidee</span> <span class="date">2h</span>
-							</div>
-						</div>
-						<h4 class="font18">
-							<a href="single.html">Exit will be a new start for you.</a>
-						</h4>
-						<p>This is James McAvoy's third film, where curving bullets
-							play a crucial role. The first one is Wanted, where Mc Avowalk.
-							The second one is Men.</p>
-
-						<a href="single.html" class="category-more">Continue to the
-							news <img src="images/arrow-right.png" alt="Arrow">
-						</a>
-
-					</div>
-
-				</div>
-				<!-- /.col -->
-
-
-				<div class="col-xs-12 col-sm-6 col-md-4 ab-item">
-
-					<div class="post boxed mb3 color-2 cart-style">
-
-						<div class="clearfix">
-							<img class="image-thumb" src="images/user-01.png" alt="Image">
-							<a href="blog.html" class="label">LATEST</a>
-							<div class="meta">
-								<span class="author">Richard Agidee</span> <span class="date">2h</span>
-							</div>
-						</div>
-						<h4 class="font18">
-							<a href="single.html">North Carolina.</a>
-						</h4>
-						<p>This is James McAvoy's third film, where curve bullets
-							play.</p>
-						<div class="image-grid col-2">
-							<div class="image" data-src="images/entertainment/gallery-01.png">
-								<img src="images/4x3.png" alt="Placeholder" />
-							</div>
-							<div class="image" data-src="images/entertainment/gallery-02.png">
-								<img src="images/4x3.png" alt="Placeholder" />
-							</div>
-						</div>
-
-
-						<a href="single.html" class="category-more">Continue to the
-							news <img src="images/arrow-right.png" alt="Arrow">
-						</a>
-
-					</div>
-
-				</div>
-				<!-- /.col -->
-				<div class="col-xs-12 col-sm-6 col-md-4 ab-item">
-
-					<div class="post boxed mb3 color-2 cart-style">
-
-						<div class="clearfix">
-							<img class="image-thumb" src="images/user-02.png" alt="Image">
-							<a href="blog.html" class="label">LATEST</a>
-							<div class="meta">
-								<span class="author">Richard Agidee</span> <span class="date">2h</span>
-							</div>
-						</div>
-						<h4 class="font18">
-							<a href="single.html">User centric electric service.</a>
-						</h4>
-						<p>This is James McAvoy's third film, where curving bullets
-							play a crucial role. The first one is Wanted, where Mc Avowalk.
-							The second one is Men.</p>
-
-						<a href="single.html" class="category-more">Continue to the
-							news <img src="images/arrow-right.png" alt="Arrow">
-						</a>
-
-					</div>
-
-				</div>
-				<!-- /.col -->
-				<div class="col-xs-12 col-sm-6 col-md-4 ab-item">
-
-					<div class="post boxed mb3 color-2 cart-style">
-
-						<div class="clearfix">
-							<img class="image-thumb" src="images/user-03.png" alt="Image">
-							<a href="blog.html" class="label">LATEST</a>
-							<div class="meta">
-								<span class="author">Richard Agidee</span> <span class="date">2h</span>
-							</div>
-						</div>
-						<h4 class="font18">
-							<a href="single.html">Exit will be a new start for you.</a>
-						</h4>
-						<p>This is James McAvoy's third film, where curving bullets
-							play a crucial role. The first one is Wanted, where Mc Avowalk.
-							The second one is Men.</p>
-
-						<a href="single.html" class="category-more">Continue to the
-							news <img src="images/arrow-right.png" alt="Arrow">
-						</a>
-
-					</div>
-
-				</div>
-				<!-- /.col -->
+				
 
 
 			</div>

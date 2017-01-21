@@ -1,81 +1,23 @@
-<h2 class="block-title mt8" data-title="Celebrities"
-	style="margin-bottom: -40px;">Celebrities</h2>
+<h2 class="block-title mt8" data-title="Spotlight">Spotlight</h2>
 
 <div class="testimonial-slider fs-blog-carousel" data-col="1"
 	data-row="1" data-responsive="1,1,1">
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
 
-			<div class="swiper-slide">
+			<div class="swiper-slide" ng-repeat="article in spotlight">
 				<div class="swiper-holder">
 
-					<img src="images/entertainment/quote-01.png" alt="Quote author">
+					<img src="{{api_url}}image/{{article.image_id}}/775x620" alt="Quote author">
 					<blockquote>
-						<cite>Kevin Cook</cite>
-						<p>The concept you have about me won’t change who i am, but it
-							can change my concept about you.</p>
+						<cite>{{article.name}}</cite>
+						<p>{{article.intro}}</p>
 					</blockquote>
 				</div>
 				<!-- /.swiper-holder -->
 
 			</div>
-			<!-- /.swiper-slide -->
-			<div class="swiper-slide">
-				<div class="swiper-holder">
-
-					<img src="images/entertainment/quote-02.png" alt="Quote author">
-					<blockquote>
-						<cite>Kevin Cook</cite>
-						<p>The concept you have about me won’t change who i am, but it
-							can change my concept about you.</p>
-					</blockquote>
-				</div>
-				<!-- /.swiper-holder -->
-
-			</div>
-			<!-- /.swiper-slide -->
-			<div class="swiper-slide">
-				<div class="swiper-holder">
-
-					<img src="images/entertainment/quote-01.png" alt="Quote author">
-					<blockquote>
-						<cite>Kevin Cook</cite>
-						<p>The concept you have about me won’t change who i am, but it
-							can change my concept about you.</p>
-					</blockquote>
-				</div>
-				<!-- /.swiper-holder -->
-
-			</div>
-			<!-- /.swiper-slide -->
-			<div class="swiper-slide">
-				<div class="swiper-holder">
-
-					<img src="images/entertainment/quote-02.png" alt="Quote author">
-					<blockquote>
-						<cite>Kevin Cook</cite>
-						<p>The concept you have about me won’t change who i am, but it
-							can change my concept about you.</p>
-					</blockquote>
-				</div>
-				<!-- /.swiper-holder -->
-
-			</div>
-			<!-- /.swiper-slide -->
-			<div class="swiper-slide">
-				<div class="swiper-holder">
-
-					<img src="images/entertainment/quote-01.png" alt="Quote author">
-					<blockquote>
-						<cite>Kevin Cook</cite>
-						<p>The concept you have about me won’t change who i am, but it
-							can change my concept about you.</p>
-					</blockquote>
-				</div>
-				<!-- /.swiper-holder -->
-
-			</div>
-			<!-- /.swiper-slide -->
+			
 		</div>
 		<!-- /.swiper-wrapper -->
 

@@ -11,7 +11,7 @@ homeApp
 							userFactory.whoami = function(token) {
 								var url = AppConfig.appUrl + 'whoami';
 								var req = {
-									method : 'POST',
+									method : 'GET',
 									url : url,
 									headers : {
 										Authorization : 'Bearer ' + token
@@ -47,7 +47,7 @@ homeApp
 								return $http(req)
 										.then(
 												function success(response) {
-													return response.data;
+													return response;
 													//showSuccessAlert("Please check your mailbox for an Activation mail.");
 												},
 												function error(response) {

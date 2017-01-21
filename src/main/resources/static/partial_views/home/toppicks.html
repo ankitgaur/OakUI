@@ -1,73 +1,19 @@
-<div class="col-md-6">
+<div class="col-md-12">
 	<div class="category-block articles">
 
-		<div class="post first hover-dark">
-			<a href="single.html">
-				<div class="image" data-src="images/news/post2.jpg">
-					<img src="images/5x3.png" alt="Proportion" />
+		<div class="post first hover-dark col-md-6" ng-repeat="article in spotlight">
+			<a href="post.html#/{{article.id}}">
+				<div class="image">
+					<img src="{{api_url}}image/{{article.image_id}}" alt="Proportion" style="width:360px;height:216px"/>
 				</div>
 			</a>
 			<div class="meta">
-				<span class="author">Richard Agidee</span> <span class="date">2h</span>
+				<span class="author">{{article.author}}</span> <span class="date">2h</span>
 			</div>
 			<h4>
-				<a href="single.html">Turkish citizens appear to have chosen law
-					man power</a>
+				<a href="post.html#/{{article.id}}">{{article.name}}</a>
 			</h4>
-			<p>North Carolina Voter ID Law Is Upheld by Federal Judge...</p>
-		</div>
-
-		<div class="post first hover-dark">
-			<a href="single.html">
-				<div class="image" data-src="images/news/post7.jpg">
-					<img src="images/5x3.png" alt="Proportion" />
-				</div>
-			</a>
-			<div class="meta">
-				<span class="author">Richard Agidee</span> <span class="date">2h</span>
-			</div>
-			<h4>
-				<a href="single.html">All Roads Lead to Land Behind Swept
-					through Japan</a>
-			</h4>
-			<p>North Carolina Voter ID Law Is Upheld by Federal Judge...</p>
-		</div>
-
-	</div>
-</div>
-<div class="col-md-6">
-	<div class="category-block articles">
-
-		<div class="post first hover-dark">
-			<a href="single.html">
-				<div class="image" data-src="images/news/post3.jpg">
-					<img src="images/5x3.png" alt="Proportion" />
-				</div>
-			</a>
-			<div class="meta">
-				<span class="author">Richard Agidee</span> <span class="date">2h</span>
-			</div>
-			<h4>
-				<a href="single.html">All Roads Lead to Land Behind Swept
-					through Japan</a>
-			</h4>
-			<p>North Carolina Voter ID Law Is Upheld by Federal Judge...</p>
-		</div>
-
-		<div class="post first hover-dark">
-			<a href="single.html">
-				<div class="image" data-src="images/news/post4.jpg">
-					<img src="images/5x3.png" alt="Proportion" />
-				</div>
-			</a>
-			<div class="meta">
-				<span class="author">Richard Agidee</span> <span class="date">2h</span>
-			</div>
-			<h4>
-				<a href="single.html">Times on the Air France’s Fresh Grief
-					Healing and More</a>
-			</h4>
-			<p>North Carolina Voter ID Law Is Upheld by Federal Judge...</p>
+			<p>{{article.intro}}...</p>
 		</div>
 
 	</div>

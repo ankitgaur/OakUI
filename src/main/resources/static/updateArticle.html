@@ -1,0 +1,291 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<title>IP2N | Ipledge2Nigeria.com</title>
+<meta name="keywords" content="HTML5,CSS3,HTML,Template,IP2N">
+<meta name="description"
+	content="IP2N - Blog, News and Magazine HTML Template">
+<meta name="author" content="IP2N">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="#" />
+
+<!-- Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700'
+	rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"
+	href="lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="lib/bootstrap/css/bootstrap-theme.min.css">
+
+<!-- Fontawesome -->
+<link rel="stylesheet" type="text/css"
+	href="lib/font-awesome/css/font-awesome.min.css">
+
+<!-- Animate -->
+<link rel="stylesheet" type="text/css" href="lib/animate.css">
+
+<!-- Swiper -->
+<link rel="stylesheet" type="text/css"
+	href="lib/swiper/css/swiper.min.css">
+
+<!-- Magnific-popup -->
+<link rel="stylesheet" type="text/css"
+	href="lib/magnific-popup/magnific-popup.css">
+
+<!-- Base MasterSlider style sheet -->
+<link rel="stylesheet" href="lib/masterslider/style/masterslider.css" />
+
+<!-- Master Slider Skin -->
+<link href="lib/masterslider/skins/default/style.css" rel='stylesheet'
+	type='text/css'>
+
+
+<!-- Stylesheet -->
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!-- Ckeditor -->
+<script src='lib/ckeditor/ckeditor.js'></script>
+
+<style>
+.tags {
+	list-style: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+.tags li {
+	float: left;
+}
+
+.tag {
+	background: #eee;
+	border-radius: 3px 0 0 3px;
+	color: #999;
+	display: inline-block;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 20px 0 23px;
+	position: relative;
+	margin: 0 10px 10px 0;
+	text-decoration: none;
+	-webkit-transition: color 0.2s;
+}
+
+.tag::before {
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+	content: '';
+	height: 6px;
+	left: 10px;
+	position: absolute;
+	width: 6px;
+	top: 10px;
+}
+
+.tag::after {
+	background: #fff;
+	border-bottom: 13px solid transparent;
+	border-left: 10px solid #eee;
+	border-top: 13px solid transparent;
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.tag:hover {
+	background-color: crimson;
+	color: white;
+}
+
+.tag:hover::after {
+	border-left-color: crimson;
+}
+</style>
+
+</head>
+<body ng-app="homeApp" ng-controller="articleCtrl">
+
+
+	<div>
+
+		<!-- Modal content-->
+
+		<div>
+
+			<div class="modal-header">
+				<a class="close" href="javascript:history.back()">&times;</a>
+				<h4 class="modal-title">Update Article</h4>
+			</div>
+
+			<div class="modal-body">
+				<form novalidate class="form-horizontal" name="articleCreateForm">
+
+					<div class="form-group col-md-12">
+						<label class="control-label" for="tags">Tags :</label>
+						<div class="input-group">
+							<input class="form-control" type="text"
+								ng-model="article.tags" placeholder="tags" value="">
+								</input><span ng-click="updateTags()" style="color:white;"
+					class="input-group-addon btn btn-primary" data-dismiss="modal">Update Tags</span>
+						</div>
+						<div>
+							<ul class="tags">
+								<li ng-repeat="t in preDefTags"><a ng-click="addTags(t)" class="tag">{{t}}</a></li>
+							</ul>
+						</div>
+						
+						
+						
+					</div>
+
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="title">Title:</label>
+						<div class="input-group">
+							<input class="form-control" type="text"
+								ng-model="article.name" placeholder="Title" />
+							<span ng-click="updateTitle()" style="color:white;"
+					class="input-group-addon btn btn-primary" data-dismiss="modal">Update Title</span>
+						</div>
+						
+					</div>
+
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="intro">Intro:</label>
+						<div class="input-group">
+							<input class="form-control intro" type="text"
+								ng-model="article.intro" placeholder="Introduction" />
+							<span ng-click="updateIntro()" style="color:white;"
+					class="input-group-addon btn btn-primary" data-dismiss="modal">Update Intro</span>
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="image">DisplayImage:</label>
+						<div class="input-group">
+							<input class="form-control" type="file"
+								placeholder="DisplayImage" id="displayImage">
+							</input>
+					<span ng-click="updateDisplayImage()" style="color:white;"
+					class="input-group-addon btn btn-primary" data-dismiss="modal">Update Display Image</span>
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<div>
+							<textarea name="editor1" id="editor1" ng-model="article.content"
+								placeholder="Title" rows="10" cols="80">
+                				Enter Text
+            			</textarea>
+						</div>
+						<span ng-click="updateContent()" style="color:white;"
+					class="btn btn-primary" data-dismiss="modal">Update Content</span>
+					</div>
+
+					<script>
+						editor = CKEDITOR.replace('editor1', {
+							filebrowserBrowseUrl : 'api/ckimages',
+							filebrowserUploadUrl : 'api/ckimages'
+						});
+
+						/* CKEDITOR.on('dialogDefinition', function (ev) {
+							  var dialogName = ev.data.name;
+							  var dialogDefinition = ev.data.definition;
+							  if (dialogName == 'image') {
+							    dialogDefinition.removeContents('Upload');
+							    dialogDefinition.addContents({
+							      title: "Upload",
+							      id: "upload",
+							      label: "Upload",
+							      elements: [{
+							        type: "html",
+							        html: '<form><input id="imageupload" type="file" name="image" /><input type="button" ng-click="sendToServer()"></form>'
+							      }]
+							    });
+							   }
+							});
+						 
+						editor.on( 'filebrowserUploadRequest', function( evt ) {
+							alert(AppConfig.key);
+							 var xhr = evt.data.fileLoader.xhr;
+							 xhr.setRequestHeader( 'Authorization', 'Basic ' + AppConfig.key);
+						} );
+						
+						editor.on( 'fileBrowseRequest', function( evt ) {
+						    var xhr = evt.data.fileLoader.xhr;
+						    xhr.setRequestHeader( 'Authorization', 'Basic ' + AppConfig.key);
+						} ); */
+					</script>
+
+
+					<div class="row"></div>
+
+				</form>
+			</div>
+
+			<div class="modal-footer">
+
+				<a type="button" ng-click="resetForm(article)"
+					class="btn btn-default" href="javascript:history.back()">Close</a>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Include jQuery and Scripts -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="lib/jquery.waypoints.min.js"></script>
+	<script type="text/javascript" src="lib/isotope.pkgd.min.js"></script>
+	<script type="text/javascript" src="lib/typed.min.js"></script>
+	<script type="text/javascript" src="lib/theia-sticky-sidebar.js"></script>
+	<script type="text/javascript" src="lib/circles.min.js"></script>
+	<script type="text/javascript" src="lib/jquery.stellar.min.js"></script>
+	<script type="text/javascript" src="lib/jquery.parallax.columns.js"></script>
+	<script type="text/javascript" src="lib/svg-morpheus.js"></script>
+
+	<!-- Swiper -->
+	<script type="text/javascript" src="lib/swiper/js/swiper.min.js"></script>
+
+	<!-- Magnific-popup -->
+	<script type="text/javascript"
+		src="lib/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+	<!-- Master Slider -->
+	<script src="lib/masterslider/jquery.easing.min.js"></script>
+	<script src="lib/masterslider/masterslider.min.js"></script>
+
+
+
+	<script type="text/javascript" src="js/scripts.js"></script>
+
+	<!-- Added Later -->
+	<!-- Angular -->
+
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-route.js"></script>
+	<script src="lib/angular/angular-ui-router.js"></script>
+	<script src="lib/angular/angular-cookies.js"></script>
+
+	<!-- Angular Components -->
+	<script src="apps/home/app.js"></script>
+	<script src="apps/home/articleController.js"></script>
+	<script src="apps/home/homeController.js"></script>
+	<script src="apps/home/userController.js"></script>
+	<script src="apps/home/service.js"></script>
+	<script src="apps/home/userService.js"></script>
+
+	<!-- Utilities -->
+	<script src="js/util.js"></script>
+	<script src="js/AppConfig.js"></script>
+
+</body>
+</html>
