@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+
+			<div class="fs-blog-carousel" data-col="4" data-row="2"
+				data-responsive="3,2,1">
+				<h3 class="fs-title text-center">Latest</h3>
+				<div class="fs-pager">
+					<span> <a href="post.html#/{{slide.id}}"
+						class="fs-arrow-prev swiper-prev"><img
+							src="images/arrow-prev.png" alt="preview"></a> <i
+						class="fs-current-index">1</i> of <i class="fs-current-total">1</i>
+						<a href="post.html#/{{slide.id}}" class="fs-arrow-next swiper-next"><img
+							src="images/arrow-next.png" alt="preview"></a>
+					</span>
+				</div>
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"  ng-repeat="slide in latest">
+							<div class="fs-blog-item boxed-title">
+								<a href="post.html#/{{slide.id}}"> <img ng-if="slide.image_id" src="{{api_url}}image/{{slide.image_id}}"
+					alt="Image" style="width: 100%;height: 100%;"/>
+								</a> <span class='fs-label'>{{slide.parent_name}}</span>
+								<div class="entry-title">
+									<h4>
+										<a href="post.html#/{{slide.id}}">{{slide.name}}</a>
+									</h4>
+									<p class="read-more">
+										<a href="post.html#/{{slide.id}}">read the article</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

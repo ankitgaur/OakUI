@@ -1,0 +1,238 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<title>IP2N | Ipledge2Nigeria.com</title>
+<meta name="keywords" content="HTML5,CSS3,HTML,Template,IP2N">
+<meta name="description"
+	content="IP2N - Blog, News and Magazine HTML Template">
+<meta name="author" content="IP2N">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="#" />
+
+<!-- Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700'
+	rel='stylesheet' type='text/css'>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"
+	href="lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="lib/bootstrap/css/bootstrap-theme.min.css">
+
+<!-- Fontawesome -->
+<link rel="stylesheet" type="text/css"
+	href="lib/font-awesome/css/font-awesome.min.css">
+
+<!-- Animate -->
+<link rel="stylesheet" type="text/css" href="lib/animate.css">
+
+<!-- Swiper -->
+<link rel="stylesheet" type="text/css"
+	href="lib/swiper/css/swiper.min.css">
+
+<!-- Magnific-popup -->
+<link rel="stylesheet" type="text/css"
+	href="lib/magnific-popup/magnific-popup.css">
+
+<!-- Base MasterSlider style sheet -->
+<link rel="stylesheet" href="lib/masterslider/style/masterslider.css" />
+
+<!-- Master Slider Skin -->
+<link href="lib/masterslider/skins/default/style.css" rel='stylesheet'
+	type='text/css'>
+
+
+<!-- Stylesheet -->
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!-- Ckeditor -->
+<script src='lib/ckeditor/ckeditor.js'></script>
+
+<style>
+.tags {
+	list-style: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+.tags li {
+	float: left;
+}
+
+.tag {
+	background: #eee;
+	border-radius: 3px 0 0 3px;
+	color: #999;
+	display: inline-block;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 20px 0 23px;
+	position: relative;
+	margin: 0 10px 10px 0;
+	text-decoration: none;
+	-webkit-transition: color 0.2s;
+}
+
+.tag::before {
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+	content: '';
+	height: 6px;
+	left: 10px;
+	position: absolute;
+	width: 6px;
+	top: 10px;
+}
+
+.tag::after {
+	background: #fff;
+	border-bottom: 13px solid transparent;
+	border-left: 10px solid #eee;
+	border-top: 13px solid transparent;
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.tag:hover {
+	background-color: crimson;
+	color: white;
+}
+
+.tag:hover::after {
+	border-left-color: crimson;
+}
+</style>
+
+</head>
+<body ng-app="homeApp" ng-controller="blogCtrl">
+
+
+	<div>
+
+		<!-- Modal content-->
+
+		<div>
+
+			<div class="modal-header">
+				<a class="close" href="javascript:history.back()">&times;</a>
+				<h4 class="modal-title">Create Blog</h4>
+			</div>
+
+			<div class="modal-body">
+				<form novalidate class="form-horizontal" name="blogCreateForm">
+
+					<!-- <div class="form-group col-sm-12">
+						<label class="control-label" for="tags">Tags :</label>
+						<div>
+
+							<input class="form-control title" type="text"
+								ng-model="blog.tags" placeholder="tags" value=""/>
+
+						</div>
+						<div>
+							<ul class="tags">
+								<li ng-repeat="t in preDefTags"><a ng-click="addTags(t)" class="tag">{{t}}</a></li>
+							</ul>
+						</div>
+					</div> -->
+
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="title">Title:</label>
+						<div>
+							<input class="form-control title" type="text"
+								ng-model="blog.title" placeholder="Title" />
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="intro">Description</label>
+						<div>
+							<input class="form-control intro" type="text"
+								ng-model="blog.intro" placeholder="Introduction" />
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="image">DisplayImage:</label>
+						<div>
+							<input class="form-control" type="file"
+								placeholder="DisplayImage" id="displayImage" />
+						</div>
+					</div>
+
+					<div class="row"></div>
+
+				</form>
+			</div>
+
+			<div class="modal-footer">
+
+				<a type="button" ng-click="resetBlogForm(blog)"
+					class="btn btn-default" href="javascript:history.back()">Close</a>
+				<button ng-click="resetBlogForm(blog)" type="button"
+					class="btn btn-default">Reset</button>
+				<button ng-click="createBlog(blog)" type="button"
+					class="btn btn-primary" data-dismiss="modal">Save</button>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Include jQuery and Scripts -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="lib/jquery.waypoints.min.js"></script>
+	<script type="text/javascript" src="lib/isotope.pkgd.min.js"></script>
+	<script type="text/javascript" src="lib/typed.min.js"></script>
+	<script type="text/javascript" src="lib/theia-sticky-sidebar.js"></script>
+	<script type="text/javascript" src="lib/circles.min.js"></script>
+	<script type="text/javascript" src="lib/jquery.stellar.min.js"></script>
+	<script type="text/javascript" src="lib/jquery.parallax.columns.js"></script>
+	<script type="text/javascript" src="lib/svg-morpheus.js"></script>
+
+	<!-- Swiper -->
+	<script type="text/javascript" src="lib/swiper/js/swiper.min.js"></script>
+
+	<!-- Magnific-popup -->
+	<script type="text/javascript"
+		src="lib/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+	<!-- Master Slider -->
+	<script src="lib/masterslider/jquery.easing.min.js"></script>
+	<script src="lib/masterslider/masterslider.min.js"></script>
+
+
+
+	<script type="text/javascript" src="js/scripts.js"></script>
+
+	<!-- Added Later -->
+	<!-- Angular -->
+
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-route.js"></script>
+	<script src="lib/angular/angular-ui-router.js"></script>
+	<script src="lib/angular/angular-cookies.js"></script>
+
+	<!-- Angular Components -->
+	<script src="apps/home/app.js"></script>
+	<script src="apps/home/blogController.js"></script>
+	<script src="apps/home/homeController.js"></script>
+	<script src="apps/home/userController.js"></script>
+	<script src="apps/home/service.js"></script>
+	<script src="apps/home/userService.js"></script>
+
+	<!-- Utilities -->
+	<script src="js/util.js"></script>
+	<script src="js/AppConfig.js"></script>
+
+</body>
+</html>

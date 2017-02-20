@@ -167,7 +167,7 @@ homeApp
 										CKEDITOR.instances.editor1.getData());
 
 								oakHomeFactory
-										.createArticles(bdata)
+										.createContent(bdata)
 										.then(
 												function success(response) {
 

@@ -8,12 +8,12 @@ homeApp
 
 							var oakHomeFactory = {};
 
-							oakHomeFactory.createArticles = function(articleData){
+							oakHomeFactory.createContent = function(content){
 								
 								token = util.getCookie("jwt");
 								
 								var url = AppConfig.appUrl+'content';
-								return $http.post(url, articleData, {
+								return $http.post(url, content, {
 							          transformRequest: angular.identity,
 							          headers: {
 							        	  Authorization : 'Bearer ' + token,
@@ -418,8 +418,7 @@ homeApp
 												},
 												function errorCallback(response) {
 													$log
-															.debug('There is some issue while getting data from rest service for category '
-																	+ cat);
+															.debug('There is some issue while getting data from rest service for category ');
 												});
 
 							};

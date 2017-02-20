@@ -1,0 +1,40 @@
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+
+		<div class="swiper-slide" data-ng-repeat="slide in slides">
+			<div class="fs-item" data-bg-color="#ffffff">
+				<div class="fs-entry-bg"><img ng-if="slide.image_id" src="{{api_url}}image/{{slide.image_id}}"
+					alt="Image" style="width: 100%;height: 100%;"/></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+
+							<div class="fs-entry-item">
+								<h4 class="fs-title fs-animate-text" data-label="Blogs">{{slide.parent_name}}</h4>
+								<h3 class="fs-animate-text">
+									{{slide.name}}
+								</h3>
+								<p class="fs-animate-text">{{slide.intro}}</p>
+								<a href="post.html#/{{slide.id}}" class="read-more fs-animate-text">read
+									the article</a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="fs-arrows">
+	<a href="post.html#/{{slide.id}}" class="fs-arrow-prev"><i
+		class="fa fa-angle-left"></i> Prev</a> <a href="post.html#/{{slide.id}}"
+		class="fs-arrow-next">Next <i class="fa fa-angle-right"></i></a>
+</div>
+<div class="fs-arrows arrows-bottom">
+	<a href="post.html#/{{slide.id}}" class="fs-arrow-prev"><i
+		class="fa fa-angle-left"></i></a> <a href="post.html#/{{slide.id}}"
+		class="fs-arrow-next"><i class="fa fa-angle-right"></i></a>
+</div>
