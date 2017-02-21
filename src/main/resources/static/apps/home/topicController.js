@@ -14,7 +14,7 @@ homeApp
 							checkLogin();
 							getCategories();
 							
-							getReplies();
+							
 							getMyTopics();
 							
 							$scope.api_url = AppConfig.appUrl;
@@ -25,7 +25,7 @@ homeApp
 								id = window.location.hash;
 
 								getTopic(id);
-
+								getReplies(id);
 							}
 
 							function checkLogin() {
@@ -74,9 +74,9 @@ homeApp
 										});
 							}
 							
-							function getReplies(){
+							function getReplies(id){
 								oakHomeFactory
-								.getContent("forum_topics","")
+								.getContentForParent("replies",id.trim().replace("#/", ""))
 								.then(
 										function success(response) {
 
@@ -84,14 +84,16 @@ homeApp
 													function() {
 														$scope
 																.$apply(function() {
+
 																	$scope.replies = response.results;
+
 																});
-													}, 0);
+													}, 10);
 
 										},
 										function error(response) {
 											$log
-													.debug('There is some issue while getting latest topics from rest service');
+													.debug('There is some issue while getting topic from rest service');
 										});
 							}
 							
@@ -108,6 +110,8 @@ homeApp
 																.$apply(function() {
 
 																	$scope.topic = response.results[0];
+																	$scope.parentid = $scope.topic.id;
+																	$scope.parentname = $scope.topic.name;
 
 																});
 													}, 10);
@@ -123,7 +127,35 @@ homeApp
 								
 							}
 							
+							$scope.createReply = function(replyobj) {
+
+								var bdata = new FormData();
+
+								bdata.append('content_type', 'replies');
+								bdata.append('title', 'Reply to topic : '+ $scope.parentname);
+								bdata.append('content',replyobj.description);
+								bdata.append('parent_id', $scope.parentid);
+								bdata.append('parent_name', $scope.parentname);
+
+								oakHomeFactory
+										.createContent(bdata)
+										.then(
+												function success(response) {
+
+													alert("Your reply was uploaded. ");
+													clearForm(replyobj);
+													getReplies($scope.parentid);
+
+												},
+												function error(response) {
+													$log
+															.debug('There is some issue while creating  reply ');
+												});
+							}
 							
+							function clearForm(replyobj) {
+								replyobj.description = null;
+							}
 							
 							/*
 							 * $scope.showTable = function() {

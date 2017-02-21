@@ -13,10 +13,24 @@ homeApp
 
 							checkLogin();
 							getCategories();
-							getTopics();
+							
 							getMyTopics();
 							
 							$scope.api_url = AppConfig.appUrl;
+							
+							$scope.api_url = AppConfig.appUrl;
+							
+							if (window.location.hash != null
+									&& window.location.hash != '') {
+
+								id = window.location.hash;
+
+								getTopicsWID(id);
+
+							}
+							else{
+								getTopics();
+							}
 							
 
 							function checkLogin() {
@@ -86,10 +100,76 @@ homeApp
 										});
 							}
 							
+							function getTopicsWID(id){
+								oakHomeFactory
+								.getContentForParent("forum_topics",id.trim().replace("#/", ""))
+								.then(
+										function success(response) {
+
+											setTimeout(
+													function() {
+														$scope
+																.$apply(function() {
+
+																	$scope.topics = response.results;
+
+																});
+													}, 10);
+
+										},
+										function error(response) {
+											$log
+													.debug('There is some issue while getting topic from rest service');
+										});
+							}
+							
 							function getMyTopics(){
 								
 							}
 							
+							
+							$scope.createTopic = function(topic) {
+
+								if(!topic.category){
+									alert("Please select a category");
+									return;
+								}
+								
+								var bdata = new FormData();
+								
+								bdata.append('content_type', 'forum_topics');
+								bdata.append('title', topic.title);
+								bdata.append('content',topic.content);
+								
+								arr = topic.category.split("|");
+								
+								parentid = arr[0];
+								parentname = arr[1];
+								
+								bdata.append('parent_id', parentid);
+								bdata.append('parent_name', parentname);
+
+								oakHomeFactory
+										.createContent(bdata)
+										.then(
+												function success(response) {
+
+													alert("Your topic was uploaded. ");
+													clearForm(topic);
+													getTopics();
+
+												},
+												function error(response) {
+													$log
+															.debug('There is some issue while creating  reply ');
+												});
+							}
+							
+							function clearForm(topic) {
+								topic.content = null;
+								topic.title = null;
+								topic.category = null;
+							}
 							
 							
 							/*

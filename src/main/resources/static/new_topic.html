@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Forum :: Topic</title>
@@ -34,27 +37,27 @@
 	href="lib/rs-plugin/css/settings.css" media="screen" />
 
 </head>
-<body class="topic" ng-app="homeApp"
-	ng-controller="forumCtrl">
+<body class="topic" ng-app="homeApp" ng-controller="forumCtrl">
 
 	<div class="container-fluid">
 
-		<div>
-			<!-- image logo -->
-			<a href="index.html" rel="home" class="custom-logo-link"> <img
-				src="images/banner_final.png" alt="logo image" width="400"
-				height="65">
-			</a>
-		</div>
-
 		<!-- Slider -->
 		<div class="tp-banner-container">
-			<!-- <div class="tp-banner"></div> -->
+			<div class="tp-banner">
+				<ul>
+					<!-- SLIDE  -->
+					<li data-transition="fade" data-slotamount="7"
+						data-masterspeed="1500">
+						<!-- MAIN IMAGE --> <img src="images/slide.jpg" alt="slidebg1"
+						data-bgfit="cover" data-bgposition="left top"
+						data-bgrepeat="no-repeat"> <!-- LAYERS -->
+					</li>
+				</ul>
+			</div>
 		</div>
 		<!-- //Slider -->
 
 
-		</li>
 		</ul>
 	</div>
 	</div>
@@ -121,7 +124,6 @@
 								href="04_new_account.html">Create account</a></li>
 						</ul>
 					</div>
-
 					<div class="clearfix"></div>
 				</div>
 			</div>
@@ -129,36 +131,186 @@
 	</div>
 
 
+
 	<section class="content">
-		<div class="container" ng-include src="'partial_views/forum/pagination.html'"></div>
-
-
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 col-md-8" ng-include src="'partial_views/forum/topics.html'"></div>
-				<div class="col-lg-4 col-md-4">
-
-					<!-- Forum Categories-->
-					<div class="sidebarblock" ng-include src="'partial_views/forum/categories.html'"></div>
-
-					<!-- Todays Poll -->
-					<!-- <div class="sidebarblock" ng-include src="'partial_views/forum/poll.html'"></div> -->
-
-					<!-- My Active Threads-->
-					<div class="sidebarblock" ng-include src="'partial_views/forum/mythreads.html'">
-						
-					</div>
-
-
+				<div class="col-lg-8 breadcrumbf">
+					<a href="#">IP2N</a> <span class="diviver">&gt;</span> <a href="#">General
+						Discussion</a> <span class="diviver">&gt;</span> <a href="#">New
+						Topic</a>
 				</div>
 			</div>
 		</div>
 
 
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-8">
 
-		<div class="container" ng-include src="'partial_views/forum/pagination.html'"></div>
 
 
+					<!-- POST -->
+					<div class="post" ng-if="user.groups">
+						<form action="#" class="form newtopic" method="post">
+							<div class="topwrap">
+								<div class="userinfo pull-left">
+									<div class="avatar">
+										<img src="images/avatar4.jpg" alt="" />
+										<div class="status red">&nbsp;</div>
+									</div>
+
+									<div class="icons">
+										<img src="images/icon3.jpg" alt="" /><img
+											src="images/icon4.jpg" alt="" /><img src="images/icon5.jpg"
+											alt="" /><img src="images/icon6.jpg" alt="" />
+									</div>
+								</div>
+								<div class="posttext pull-left">
+
+									<div>
+										<input type="text" placeholder="Enter Topic Title" ng-model="topic.title"
+											class="form-control" />
+									</div>
+
+									<div class="row">
+										<div class="col-lg-12 col-md-12">
+
+											<select name="category" id="category" class="form-control" ng-model="topic.category"
+												ng-options="(cat.id + '|' + cat.name) as cat.name for cat in categories">
+											</select> 
+											
+										</div>
+									</div>
+
+									<div>
+										<textarea name="desc" id="desc" placeholder="Description" ng-model="topic.content"
+											class="form-control"></textarea>
+									</div>
+									<!-- <div class="row newtopcheckbox">
+										<div class="col-lg-6 col-md-6">
+											<div>
+												<p>Who can see this?</p>
+											</div>
+											<div class="row">
+												<div class="col-lg-6 col-md-6">
+													<div class="checkbox">
+														<label> <input type="checkbox" id="everyone" />
+															Everyone
+														</label>
+													</div>
+												</div>
+												<div class="col-lg-6 col-md-6">
+													<div class="checkbox">
+														<label> <input type="checkbox" id="friends" />
+															Only Friends
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6">
+											<div>
+												<p>Share on Social Networks</p>
+											</div>
+											<div class="row">
+												<div class="col-lg-3 col-md-4">
+													<div class="checkbox">
+														<label> <input type="checkbox" id="fb" /> <i
+															class="fa fa-facebook-square"></i>
+														</label>
+													</div>
+												</div>
+												<div class="col-lg-3 col-md-4">
+													<div class="checkbox">
+														<label> <input type="checkbox" id="tw" /> <i
+															class="fa fa-twitter"></i>
+														</label>
+													</div>
+												</div>
+												<div class="col-lg-3 col-md-4">
+													<div class="checkbox">
+														<label> <input type="checkbox" id="gp" /> <i
+															class="fa fa-google-plus-square"></i>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div> -->
+
+
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="postinfobot">
+
+								<!-- <div class="notechbox pull-left">
+									<input type="checkbox" name="note" id="note"
+										class="form-control" />
+								</div>
+
+								<div class="pull-left">
+									<label for="note"> Email me when some one post a reply</label>
+								</div> -->
+
+								<div class="pull-right postreply">
+									<div class="pull-left smile">
+										<a href="#"><i class="fa fa-smile-o"></i></a>
+									</div>
+									<div class="pull-left">
+										<button type="button" class="btn btn-primary" ng-click="createTopic(topic)">Post</button>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+
+
+								<div class="clearfix"></div>
+							</div>
+						</form>
+					</div>
+					<!-- POST -->
+
+					<!-- <div class="row similarposts">
+						<div class="col-lg-10">
+							<i class="fa fa-info-circle"></i>
+							<p>
+								Similar Posts according to your <a href="#">Topic Title</a>.
+							</p>
+						</div>
+						<div class="col-lg-2 loading">
+							<i class="fa fa-spinner"></i>
+						</div>
+
+					</div> -->
+
+					<div ng-include src="'partial_views/forum/topics.html'"></div>
+
+
+
+
+
+
+				</div>
+				<div class="col-lg-4 col-md-4">
+
+					<!-- Forum Categories-->
+					<div class="sidebarblock" ng-include
+						src="'partial_views/forum/categories.html'"></div>
+
+					<!-- Todays Poll -->
+					<!-- <div class="sidebarblock" ng-include src="'partial_views/forum/poll.html'"></div> -->
+
+					<!-- My Active Threads-->
+					<div class="sidebarblock" ng-include
+						src="'partial_views/forum/mythreads.html'"></div>
+				</div>
+			</div>
+
+
+
+			<div class="container" ng-include
+				src="'partial_views/forum/pagination.html'"></div>
 	</section>
 
 	<footer>
@@ -187,13 +339,14 @@
 	<!-- get jQuery from the google apis -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 
-
 	<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
 	<script type="text/javascript"
 		src="lib/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
 	<script type="text/javascript"
 		src="lib/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 
 
@@ -236,5 +389,5 @@
 	<script src="js/AppConfig.js"></script>
 </body>
 
-<!-- Mirrored from forum.azyrusthemes.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Dec 2016 11:37:44 GMT -->
+<!-- Mirrored from forum.azyrusthemes.com/03_new_topic.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Dec 2016 11:37:44 GMT -->
 </html>

@@ -75,8 +75,7 @@ homeApp
 							
 							oakHomeFactory.getContentForParent = function(content_type,parentid) {
 								var url = AppConfig.appUrl
-								+ 'content/parent/' + content_type + '/'+ parentid
-								+ tags;
+								+ 'content/parent/' + content_type + '/'+ parentid;
 
 								return $http({
 									method : 'GET',
